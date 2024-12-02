@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundVibe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kenia&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-content">
+            <div class="neon-sign">SoundVibe</div>
+            <a href="#about" class="start-button">Start</a>
+            <div class="icon-container">
+                <img src="logo.png" alt="Логотип" class="icon">
+            </div>
+        </div>
+    </header>
+
+    <div id="about" class="frame">
+        <div class="description">SoundVibe - это ваш портал в мир захватывающих саундтреков к фильмам. Мы созданы для того, чтобы помочь вам найти идеальную музыкальную подкладку для любого настроения, события или проекта.</div>
+    </div>
+
+    <div id="film-selection" class="frame">
+        <label for="filmSelect">Выберите фильм:</label>
+        <select id="filmSelect">
+            <option value="">--Выберите фильм--</option>
+            <option value="inception">Начало</option>
+            <option value="interstellar">Интерстеллар</option>
+            <option value="matrix">Матрица</option>
+        </select>
+        <div class="film-info" id="filmInfo"></div>
+        <div id="soundtracks"></div>
+    </div>
+
+    <div id="reviews" class="frame">
+        <h1>Отзывы</h1>
+        <form id="reviewForm">
+            <input type="text" id="reviewName" placeholder="Ваше имя" required>
+            <textarea id="reviewText" placeholder="Ваш отзыв" required></textarea>
+            <button type="submit">Отправить отзыв</button>
+        </form>
+        <div id="reviewList"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h2>Контактная информация</h2>
+            <p>Email: contact@soundvibe.com</p>
+            <p>Телефон: +7 (123) 456-7890</p>
+            <p>Адрес: ул. Примерная, д. 1, Москва, Россия</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
