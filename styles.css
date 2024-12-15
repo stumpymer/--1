@@ -1,15 +1,28 @@
+/* Основные стили для страницы */
 body {
-    background-image: url('background.png');
+    font-family: 'Kenia', Arial, sans-serif;
+    background-image: url('background.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: white;
-    font-family: 'Kenia', Arial, sans-serif;
     margin: 0;
+    padding: 20px;
 }
 
-.header {
+/* Стили для контейнера с рамкой */
+.frame {
     background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin: 20px;
+}
+
+/* Стили для заголовков */
+.header {
+    background-color: rgba(0, 0, 0, 0.3);
     padding: 20px;
     text-align: center;
 }
@@ -27,61 +40,35 @@ body {
     margin: 10px 0;
 }
 
+/* Стили для кнопки начала */
 .start-button {
     display: inline-block;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.9);
     color: black;
-    padding: 15px 30px;
-    font-size: 20px;
+    padding: 30px 100px;
+    font-size: 32px;
     text-decoration: none;
-    border-radius: 5px;
-    margin-top: 10px;
-    transition: background-color 0.08s;
+    border-radius: 12px;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
 }
 
 .start-button:hover {
     background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
 }
 
-.icon-container {
-    width: 100px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-.icon {
-    width: 80px;
-    height: auto;
-}
-
-.frame {
-    position: relative;
-    background-color: rgba(49, 38, 38, 0);
-    padding: 20px;
-    margin: 20px;
-    border-radius: 10px;
-    margin-top: 80px;
-}
-
-.header, .description {
-    color: #FFFFFF;
-    font-family: 'Kenia';
-}
-
-.header {
-    font-size: 50px;
-}
-
+/* Описание */
 .description {
     font-size: 40px;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.0);
     padding: 15px;
     border-radius: 5px;
 }
 
+/* Информация о фильме */
 .film-info {
     margin: 20px 0;
     padding: 15px;
@@ -90,6 +77,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Стили для селекторов */
 select {
     padding: 10px;
     font-size: 16px;
@@ -111,11 +99,13 @@ select:focus {
     background-color: rgba(255, 255, 255, 0.9);
 }
 
+/* Стили для аудио */
 audio {
     margin-top: 10px;
     width: 100%;
 }
 
+/* Стили для нижнего колонтитула */
 .footer {
     background-color: rgba(0, 0, 0, 0.3);
     color: white;
@@ -135,6 +125,7 @@ audio {
     margin: 5px 0;
 }
 
+/* Стили для отзывов */
 #reviews {
     margin-top: 20px;
 }
@@ -174,5 +165,162 @@ audio {
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
+}
+
+/* Стили для контейнера карточек */
+.cards-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: transparent;
+    padding: 20px;
+}
+
+/* Стили для карточек */
+.card {
+    width: 300px;
+    margin-bottom: 20px;
+    background-color: #7d0d0d40;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    overflow: auto;
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 10px;
+    float: left;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card p {
+    margin: 0;
+}
+
+/* Стили для галереи */
+.gallery-container {
+    display: flex;
+    justify-content: center;
+    overflow: hidden; /* Скрывает лишние изображения */
+    width: 100%; /* Ширина контейнера */
+    margin: 20px 0; /* Отступы */
+}
+
+.gallery {
+    display: flex; /* Горизонтальное расположение изображений */
+    transition: transform 0.5s ease; /* Плавный переход при смещении */
+}
+
+.gallery img {
+    width: 400px; /* Увеличенная ширина изображения */
+    height: auto; /* Автоматическая высота */
+    margin-right: 10px; /* Отступ между изображениями */
+    cursor: pointer; /* Курсор при наведении */
+    border-radius: 10px; /* Закругление углов */
+}
+
+/* Стили для карточек с фактами */
+.facts-container {
+    display: flex;
+    justify-content: space-around; /* Распределяет карточки равномерно по контейнеру */
+    margin: 20px 0;
+    flex-direction: row; /* Убедитесь, что карточки располагаются в строку */
+    overflow-x: auto; /* Добавьте прокрутку, если карточки не помещаются */
+}
+
+.fact-card {
+    position: relative;
+    width: 300px; /* Увеличенная ширина карточек */
+    height: 200px; /* Увеличенная высота карточек */
+    perspective: 1000px; /* Создание эффекта 3D */
+    margin: 10px;
+}
+
+.fact-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Сохранение 3D эффекта */
+}
+
+.fact-card:hover .fact-card-inner {
+    transform: rotateY(180deg); /* Поворот карточки */
+}
+
+.fact-card-front, .fact-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Скрытие задней стороны */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.fact-card-front {
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px; /* Увеличьте размер шрифта */
+}
+
+.fact-card-back {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg); /* Поворачиваем заднюю сторону */
+    padding: 10px;
+    text-align: center;
+}
+
+/* Обновление изображения, чтобы оно занимало всё пространство карточки */
+.fact-card-front img {
+    width: 100%; /* Изображение занимает всю ширину карточки */
+    height: auto; /* Автоматическая высота */
+    max-height: 100%; /* Максимальная высота, чтобы не выходило за пределы карточки */
+    object-fit: cover; /* Обеспечивает заполнение изображения */
+    object-position: center; /* Центрирование изображения */
+}
+
+/* Стили для кнопок прокрутки */
+.scroll-button {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: background-color 0.3s;
+}
+
+.scroll-button:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* Респонсивный дизайн (для меньших экранов) */
+@media (max-width: 768px) {
+    .card {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    .fact-card {
+        width: 90%; /* Уменьшите ширину карточек для мобильных устройств */
+        height: 180px; /* Уменьшите высоту карточек для мобильных устройств */
+    }
 }
 

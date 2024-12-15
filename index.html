@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoundVibe</title>
+    <title>SoundVibe - Фильмография</title>
     <link href="https://fonts.googleapis.com/css2?family=Kenia&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -13,9 +13,6 @@
         <div class="header-content">
             <div class="neon-sign">SoundVibe</div>
             <a href="#about" class="start-button">Start</a>
-            <div class="icon-container">
-                <img src="logo.png" alt="Логотип" class="icon">
-            </div>
         </div>
     </header>
 
@@ -31,8 +28,23 @@
             <option value="interstellar">Интерстеллар</option>
             <option value="matrix">Матрица</option>
         </select>
-        <div class="film-info" id="filmInfo"></div>
+
+        <!-- Контейнер для вращающейся галереи -->
+        <div class="gallery-container">
+            <div class="gallery" id="gallery">
+                <img src="images/inception.jpg" alt="Начало" data-film="inception">
+                <img src="images/interstellar.jpg" alt="Интерстеллар" data-film="interstellar">
+                <img src="images/matrix.jpg" alt="Матрица" data-film="matrix">
+            </div>
+        </div>
+
+        <div id="filmInfo"></div>
+
+        <!-- Контейнер для карточек с фактами перед саундтреками -->
+        <div id="factsContainer" class="facts-container"></div>
+
         <div id="soundtracks"></div>
+        <section id="cardsContainer" class="cards-container"></section>
     </div>
 
     <div id="reviews" class="frame">
@@ -55,7 +67,6 @@
     </footer>
 
     <script src="script.js"></script>
-
 </body>
 </html>
 
