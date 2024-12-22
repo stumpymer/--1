@@ -6,6 +6,7 @@
     <title>SoundVibe - Фильмография</title>
     <link href="https://fonts.googleapis.com/css2?family=Kenia&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    
 </head>
 <body>
 
@@ -52,7 +53,7 @@
         <form id="reviewForm">
             <input type="text" id="reviewName" placeholder="Ваше имя" required>
             <textarea id="reviewText" placeholder="Ваш отзыв" required></textarea>
-            <button type="submit">Отправить отзыв</button>
+            <button type="submit" id="submitReview">Отправить отзыв</button>
         </form>
         <div id="reviewList"></div>
     </div>
@@ -66,7 +67,12 @@
         </div>
     </footer>
 
+    <!-- Модальное окно -->
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage" alt="Факт">
+        <div id="caption"></div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
-
