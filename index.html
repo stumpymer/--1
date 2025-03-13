@@ -21,7 +21,8 @@
        ym(100339614, "init", {
             clickmap:true,
             trackLinks:true,
-            accurateTrackBounce:true
+            accurateTrackBounce:true,
+            webvisor:true // Включаем вебвизор для более детального анализа
        });
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/100339614" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
@@ -137,7 +138,8 @@
             ym(100339614, 'init', {
                 clickmap: true,
                 trackLinks: true,
-                accurateTrackBounce: true
+                accurateTrackBounce: true,
+                webvisor: true // Включаем вебвизор
             });
             saveAnswer(); // Сохраняем согласие
         }
@@ -157,7 +159,10 @@
 
             // Отправляем данные в Яндекс.Метрику
             if (typeof ym !== 'undefined') {
+                console.log("Отправляем хит в Яндекс.Метрику:", currentUrl);
                 ym(100339614, 'hit', currentUrl); // 100339614 — ваш ID счётчика
+            } else {
+                console.error("Счётчик Яндекс.Метрики не инициализирован.");
             }
 
             // Дополнительные действия в зависимости от URL
