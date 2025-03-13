@@ -6,6 +6,10 @@
     <title>SoundVibe - Фильмография</title>
     <link href="https://fonts.googleapis.com/css2?family=Kenia&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Подключаем библиотеку js-cookie -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >
        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -24,6 +28,18 @@
     <!-- /Yandex.Metrika counter -->
 </head>
 <body>
+
+    <!-- Уведомление о cookies -->
+    <div class="cookie-notification cookie-notification_hidden_yes">
+        <div class="cookie-notification__header">Предупреждение о сборе статистики</div>
+        <div class="cookie-notification__body">
+            <p>Этот сайт собирает статистику посещения и данные посетителей.</p>
+            <p><a href="/privacy-policy" style="color: blue;">Политика конфиденциальности</a></p>
+        </div>
+        <div class="cookie-notification__buttons">
+            <button class="cookie-notification__button" id="yes">Я согласен</button>
+        </div>
+    </div>
 
     <header class="header">
         <div class="header-content">
@@ -88,6 +104,51 @@
         <img class="modal-content" id="modalImage" alt="Факт">
         <div id="caption"></div>
     </div>
+
+    <!-- Скрипт для уведомления о cookies -->
+    <script type="text/javascript">
+        var messageElement = document.querySelector('.cookie-notification');
+
+        // Проверяем, есть ли согласие пользователя
+        if (!Cookies.get('agreement')) {
+            showMessage(); // Показываем уведомление, если согласия нет
+        } else {
+            initCounter(); // Инициализируем счётчик, если согласие есть
+        }
+
+        // Функция для показа уведомления
+        function showMessage() {
+            messageElement.classList.remove('cookie-notification_hidden_yes');
+        }
+
+        // Функция для скрытия уведомления
+        function hideMessage() {
+            messageElement.classList.add('cookie-notification_hidden_yes');
+        }
+
+        // Функция для сохранения согласия пользователя
+        function saveAnswer() {
+            Cookies.set('agreement', '1', { expires: 365 }); // Сохраняем согласие на 1 год
+            hideMessage(); // Скрываем уведомление
+        }
+
+        // Функция для инициализации счётчика Яндекс.Метрики
+        function initCounter() {
+            ym(100339614, 'init', {
+                clickmap: true,
+                trackLinks: true,
+                accurateTrackBounce: true
+            });
+            saveAnswer(); // Сохраняем согласие
+        }
+
+        // Обработчик нажатия на кнопку "Я согласен"
+        document.querySelector('#yes').addEventListener('click', function () {
+            initCounter(); // Инициализируем счётчик и сохраняем согласие
+        });
+    </script>
+
+    <!-- Основной скрипт сайта -->
     <script src="script.js"></script>
 </body>
 </html>
