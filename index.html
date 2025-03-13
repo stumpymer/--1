@@ -148,6 +148,41 @@
         });
     </script>
 
+    <!-- Скрипт для отслеживания URL и отправки данных в Яндекс.Метрику -->
+    <script type="text/javascript">
+        // Функция для обработки изменения URL
+        function handleUrlChange() {
+            const currentUrl = window.location.hash; // Получаем текущий хэш (например, #about, #film-selection, #reviews)
+            console.log("Текущий URL:", currentUrl);
+
+            // Отправляем данные в Яндекс.Метрику
+            if (typeof ym !== 'undefined') {
+                ym(100339614, 'hit', currentUrl); // 100339614 — ваш ID счётчика
+            }
+
+            // Дополнительные действия в зависимости от URL
+            switch (currentUrl) {
+                case "#about":
+                    console.log("Посещена страница 'О нас'");
+                    break;
+                case "#film-selection":
+                    console.log("Посещена страница 'Выбор фильма'");
+                    break;
+                case "#reviews":
+                    console.log("Посещена страница 'Отзывы'");
+                    break;
+                default:
+                    console.log("Неизвестный URL");
+            }
+        }
+
+        // Отслеживаем изменение хэша (URL)
+        window.addEventListener("hashchange", handleUrlChange);
+
+        // Вызываем функцию при первой загрузке страницы
+        handleUrlChange();
+    </script>
+
     <!-- Основной скрипт сайта -->
     <script src="script.js"></script>
 </body>
